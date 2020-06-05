@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Custom = () => {
-  return <>user</>;
+  return <>role</>;
 };
 
 export default Custom;
