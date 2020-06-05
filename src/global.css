@@ -1,0 +1,8 @@
+section.ant-layout {
+  height: 100vh;
+}
+
+.home {
+  height: 100px;
+  color: red;
+}
