@@ -6,3 +6,6 @@ section.ant-layout {
   height: 100px;
   color: red;
 }
+.hl-text-center {
+  text-align: center;
+}
