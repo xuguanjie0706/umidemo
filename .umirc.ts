@@ -1,51 +1,63 @@
-/*
- * @Author: xgj
- * @since: 2020-05-27 14:05:32
- * @lastTime: 2020-06-05 15:42:06
- * @LastAuthor: xgj
- * @FilePath: /um/.umirc.ts
- * @message: 
- */
-import { defineConfig } from 'umi';
+import { IConfig } from 'umi-types';
+// 引入步骤2安装的依赖们
+import postcssImport from 'postcss-import';
+import postcssUrl from 'postcss-url';
+import postcssAspectRatioMini from 'postcss-aspect-ratio-mini';
+import postcssWriteSvg from 'postcss-write-svg';
+import postcsscssnext from 'postcss-cssnext';
+import pxToViewPort from 'postcss-px-to-viewport';
+import cssnano from 'cssnano';
 
-export default defineConfig({
-  dynamicImport: {
-    loading: '@/components/PageLoading/index',
-  },
-  nodeModulesTransform: {
-    type: 'none',
-  },
-  // layout: {},
+// ref: https://umijs.org/config/
+const config: IConfig = {
+  treeShaking: true,
   routes: [
     {
       path: '/',
-      component: '@/layouts/index',
+      component: '../layouts/index',
       routes: [
-        {
-          path: '/',
-          redirect: '/home',
-        },
-        { path: '/home', name: '首页', component: '@/pages/Home' },
-        {
-          name: '系统配置',
-          icon: "StepForwardOutlined",
-          routes: [
-            {
-              path: '/role',
-              name: '权限',
-              component: '@/pages/Role'
-            },
-            {
-              path: '/user',
-              name: '用户',
-              component: '@/pages/User',
-            }
-          ],
-        },
+        { path: '/', component: '../pages/Home' }
       ]
-    }, {
-
     }
   ],
-  publicPath: "./"
-});
+  plugins: [
+    // ref: https://umijs.org/plugin/umi-plugin-react.html
+    ['umi-plugin-react', {
+      antd: false,
+      dva: false,
+      dynamicImport: false,
+      title: 'react-pxtovw',
+      dll: false,
+
+      routes: {
+        exclude: [
+          /components\//,
+        ],
+      },
+    }],
+  ],
+  extraPostCSSPlugins: [
+    postcssImport({}),
+    postcssUrl({}),
+    postcssAspectRatioMini({}),
+    postcssWriteSvg({ utf8: false }),
+    postcsscssnext({}),
+    pxToViewPort({
+      viewportWidth: 720, // (Number) The width of the viewport.
+      viewportHeight: 1280, // (Number) The height of the viewport.
+      unitPrecision: 3, // (Number) The decimal numbers to allow the REM units to grow to.
+      viewportUnit: 'vw', // (String) Expected units.
+      selectorBlackList: ['.ignore', '.hairlines'], // (Array) The selectors to ignore and leave as px.
+      minPixelValue: 1, // (Number) Set the minimum pixel value to replace.
+      mediaQuery: false // (Boolean) Allow px to be converted in media queries.
+    }),
+    cssnano({
+      preset: "advanced",
+      autoprefixer: false,
+      "postcss-zindex": false,
+      zindex: false
+    })
+  ],
+}
+
+export default config;
