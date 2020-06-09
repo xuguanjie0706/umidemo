@@ -1,5 +1,4 @@
-import { IConfig } from 'umi-types';
-// 引入步骤2安装的依赖们
+import { defineConfig } from 'umi';
 import postcssImport from 'postcss-import';
 import postcssUrl from 'postcss-url';
 import postcssAspectRatioMini from 'postcss-aspect-ratio-mini';
@@ -8,34 +7,11 @@ import postcsscssnext from 'postcss-cssnext';
 import pxToViewPort from 'postcss-px-to-viewport';
 import cssnano from 'cssnano';
 
-// ref: https://umijs.org/config/
-const config: IConfig = {
-  treeShaking: true,
-  routes: [
-    {
-      path: '/',
-      component: '../layouts/index',
-      routes: [
-        { path: '/', component: '../pages/Home' }
-      ]
-    }
-  ],
-  plugins: [
-    // ref: https://umijs.org/plugin/umi-plugin-react.html
-    ['umi-plugin-react', {
-      antd: false,
-      dva: false,
-      dynamicImport: false,
-      title: 'react-pxtovw',
-      dll: false,
-
-      routes: {
-        exclude: [
-          /components\//,
-        ],
-      },
-    }],
-  ],
+export default defineConfig({
+  nodeModulesTransform: {
+    type: 'none',
+  },
+  routes: [{ path: '/', component: '@/pages/index' }],
   extraPostCSSPlugins: [
     postcssImport({}),
     postcssUrl({}),
@@ -49,15 +25,13 @@ const config: IConfig = {
       viewportUnit: 'vw', // (String) Expected units.
       selectorBlackList: ['.ignore', '.hairlines'], // (Array) The selectors to ignore and leave as px.
       minPixelValue: 1, // (Number) Set the minimum pixel value to replace.
-      mediaQuery: false // (Boolean) Allow px to be converted in media queries.
+      mediaQuery: false, // (Boolean) Allow px to be converted in media queries.
     }),
     cssnano({
-      preset: "advanced",
+      preset: 'advanced',
       autoprefixer: false,
-      "postcss-zindex": false,
-      zindex: false
-    })
+      'postcss-zindex': false,
+      zindex: false,
+    }),
   ],
-}
-
-export default config;
+});
