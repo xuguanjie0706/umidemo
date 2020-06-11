@@ -34,4 +34,8 @@ export default defineConfig({
       zindex: false,
     }),
   ],
+  base: '/app1',
+  plugins: [
+    // ['@umijs/plugin-qiankun', { slave: {} }],
+  ],
 });
