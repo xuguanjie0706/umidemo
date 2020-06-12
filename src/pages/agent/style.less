@@ -1,0 +1,92 @@
+@import '~@/components/varible.less';
+
+.sectionTitle {
+  color: #333333;
+  font-size: 36 / @u;
+  line-height: 44 / @u;
+  font-weight: 500;
+  margin-top: 60 / @u;
+  margin-bottom: 30 / @u;
+}
+
+.showFilterBtn {
+  width: 30 / @u;
+  height: 30 / @u;
+  background: url(~@/assets/img/mobile/btn_shaixuan.svg) no-repeat center;
+  background-size: cover;
+}
+
+.carousel {
+  :global(*) {
+    touch-action: none;
+  }
+}
+
+.smallFont {
+  font-size: 30 / @u;
+  line-height: 36 / @u;
+  font-weight: normal;
+}
+
+.activeText {
+  color: #1464e8;
+}
+
+.dispatchBtn {
+  border-radius: 4px;
+}
+
+.moduleWrap {
+  margin-top: 60 / @u;
+  margin-bottom: 120 / @u;
+}
+
+.margin-t15 {
+  margin-top: 15px;
+}
+
+.moduleEntry {
+  width: 50%;
+  background-color: #f8f8f8;
+  height: 120 / @u;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px; /*no*/
+
+  &:first-child {
+    margin-right: 30 / @u;
+  }
+}
+
+.iconEntry {
+  width: 60 / @u;
+  height: 60 / @u;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 30 / @u;
+}
+
+.iconMyUser {
+  background-image: url(~@/assets/img/mobile/icon_guest.svg);
+}
+.iconMyDispatch {
+  background-image: url(~@/assets/img/mobile/icon_fenfa.svg);
+}
+
+.iconMyDaili {
+  background-image: url(~@/assets/img/mobile/icon_daili.svg);
+}
+
+.iconMyHuazhuan {
+  background-image: url(~@/assets/img/mobile/icon_huazhuan.svg);
+}
+
+.entryText {
+  color: #333333;
+  font-size: 30 / @u;
+  font-weight: 500;
+}

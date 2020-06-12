@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160px" height="160px" viewBox="0 0 160 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_status_tick</title>
+    <g id="SaaS-V1.1.0" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="手机端-提交成功" transform="translate(-295.000000, -288.000000)">
+            <g id="icon_status_tick" transform="translate(295.000000, 288.000000)">
+                <circle id="椭圆形" fill="#39C575" cx="80" cy="80" r="80"></circle>
+                <path d="M117.416553,50.583447 C120.861149,54.028043 120.861149,59.6128365 117.416553,63.0574325 L73.7576036,106.716382 C70.3130076,110.160978 64.728214,110.160978 61.283618,106.716382 L60.939724,106.329568 L42.583447,87.9723601 C39.138851,84.5277641 39.138851,78.9429706 42.583447,75.4983746 C46.028043,72.0537786 51.6128365,72.0537786 55.0574325,75.4983746 L67.537413,87.974233 L104.942567,50.583447 C108.387163,47.138851 113.971957,47.138851 117.416553,50.583447 Z" id="路径" stroke="#39C575" stroke-width="2" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
