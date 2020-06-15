@@ -11,7 +11,76 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [{ path: '/', component: '@/pages/index' }],
+  routes: [
+    {
+      path: '/m',
+      component: '@/layouts/index',
+      routes: [
+        // {
+        //   path: '/m/',
+        //   redirect: '/m/agent',
+        // },
+        {
+          path: 'login',
+          name: '登录',
+          component: '@/pages/login/index',
+        },
+
+        //     {
+        //       path: 'agent',
+        //       name: '代理人',
+        //       component: '@/pages/mobile/agent/index',
+        //       __isDynamic: true,
+        //     },
+        //     {
+        //       path: 'success',
+        //       name: '提交成功',
+        //       component: '@/pages/mobile/SubmitSuccess/index',
+        //       __isDynamic: true,
+        //     },
+        //     {
+        //       path: 'addagentbusy/:inviteUid',
+        //       name: '添加代理商',
+        //       component: '@/pages/mobile/AddAgentBusy/index',
+        //       __isDynamic: true,
+        //     },
+        //     {
+        //       path: 'addagent',
+        //       name: '添加代理人',
+        //       component: '@/pages/mobile/AddAgent/index',
+        //       __isDynamic: true,
+        //     },
+        //     {
+        //       path: 'subAgent',
+        //       name: '下级代理',
+        //       component: '@/pages/mobile/agent/subAgent',
+        //       __isDynamic: true,
+        //     },
+        //     {
+        //       path: 'subAgent/:id',
+        //       name: '下级代理详情',
+        //       component: '@/pages/mobile/agent/subAgentDetail',
+        //       __isDynamic: true,
+        //     },
+        //     {
+        //       path: 'dispatchs',
+        //       name: '分发记录',
+        //       component: '@/pages/mobile/dispatchs',
+        //       __isDynamic: true,
+        //     },
+        //     {
+        //       path: 'users',
+        //       name: '我的用户',
+        //       component: '@/pages/mobile/users',
+        //       __isDynamic: true,
+        //     },
+      ],
+    },
+    // {
+    //   path: '*',
+    //   redirect: '/m/agent',
+    // },
+  ],
   extraPostCSSPlugins: [
     postcssImport({}),
     postcssUrl({}),
