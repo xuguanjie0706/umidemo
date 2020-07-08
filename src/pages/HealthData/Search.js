@@ -6,8 +6,10 @@ import { Input, Form, Row, Col, Select, DatePicker } from 'antd';
 import api from '@/api';
 const { RangePicker } = DatePicker;
 const { Option } = Select;
+
 const Search = props => {
   const { form, defaultSearchData, SUBSCRIBE_STATUS_LIST } = props;
+  console.log(form);
 
   useEffect(() => {
     // initLoad();
@@ -61,6 +63,15 @@ const Search = props => {
           label="更新时间"
           labelCol={{ span: 4 }}
           wrapperCol={{ span: 20 }}
+          getValueFromEvent={(m, value) => {
+            // console.log(args);
+            console.log(form);
+
+            form.setFieldsValue({
+              startTime: value[0],
+              endTime: value[1],
+            });
+          }}
         >
           <RangePicker
             showTime
@@ -70,6 +81,8 @@ const Search = props => {
           ></RangePicker>
         </Form.Item>
       </Col>
+      <Form.Item name="startTime"></Form.Item>
+      <Form.Item name="endTime"></Form.Item>
     </Row>
   );
 };

@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-07-07 11:25:43
- * @lastTime: 2020-07-07 16:26:39
+ * @lastTime: 2020-07-08 18:33:34
  * @LastAuthor: xgj
  * @FilePath: /um/src/pages/HealthData/index.js
  * @message: 会员信息
@@ -12,15 +12,14 @@ import CustomTable from '@/components/Custom/CustomTable';
 import CustomSearchContainer from '@/components/Custom/CustomSearchContainer';
 import CustomSearchBtnContainer from '@/components/Custom/CustomSearchBtnContainer';
 import { Button, Card } from 'antd';
-// import api from '@/api';
+import api from '@/api';
 // import { SUBSCRIBE_STATUS_LIST } from '@/utils/enum';
-import { connect } from 'umi';
 import Search from './Search';
 import ModalForm from './Form';
 import TrendsView from './TrendsView';
 
 const Custom = props => {
-  console.log(props);
+  // console.log(props);
 
   const { defaultSearchData, history } = props;
 
@@ -143,7 +142,7 @@ const Custom = props => {
         customTitle={<span className="hl-title-blue">重点关注用户</span>}
         customSize="middle"
         rowKey="id"
-        // request={api.batchSubscribeManage.listMember}
+        request={api.DoctorManage.listDoctor}
         loading
         columns={columns}
         onTableRef={tableRef}

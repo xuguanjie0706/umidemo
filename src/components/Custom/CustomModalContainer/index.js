@@ -31,15 +31,6 @@ const CustomModalContainer = WrappedComponent1 => {
 
     componentDidMount() {
       this.props.onRef(this);
-      // this.refs.ModalForm.validateTrigger = 'onFinish';
-      // const { isTouch } = this.props;
-      // const touch = this.refs.ModalForm.isFieldsTouched();
-      // console.log(touch);
-      // console.log(this);
-
-      // if (isTouch) {
-
-      // }
     }
 
     handleShow = () => {
