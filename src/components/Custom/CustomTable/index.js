@@ -46,9 +46,13 @@ class CustomTable extends Component {
           page: 1,
         });
       }
-      const { defaultSearchData, request = () => {}, form = {} } = this.props;
-      const { getFieldValue } = form;
-      const formData = (getFieldValue && getFieldValue()) || {};
+      const { defaultSearchData, request = () => {}, form } = this.props;
+      let formData = {};
+      if (form) {
+        const { getFieldsValue } = form;
+        formData = getFieldsValue();
+      }
+
       const { page, count } = this.state;
       const data = {
         pageNum: page,

@@ -11,7 +11,7 @@ const proSettings = {
   menu: {
     locale: true,
   },
-  title: '微医通后台管理',
+  title: '金泽康养后台',
   pwa: true,
   iconfontUrl: '',
 };

@@ -178,8 +178,8 @@ const Custom = (props: props) => {
         rightContentRender={RightContent} // 导航栏上方（page 上方）
         // footerRender={() => <p>123</p>} // 导航栏上方（page 下方）
       >
-        {children}
-        {/* <ConfigProvider locale={zhCN}>{children}</ConfigProvider> */}
+        {/* {children} */}
+        <ConfigProvider locale={zhCN}>{children}</ConfigProvider>
       </ProLayout>
     </>
   );

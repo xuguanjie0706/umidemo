@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-07-07 11:25:43
- * @lastTime: 2020-07-07 17:57:16
+ * @lastTime: 2020-07-08 17:10:12
  * @LastAuthor: xgj
  * @FilePath: /um/src/pages/DoctorView/index.js
  * @message:
@@ -53,7 +53,8 @@ const Custom = props => {
   /* ******* 设置方法 ******* */
   /* 初始化 */
   const initLoad = async () => {
-    api.DoctorManage.listDoctor();
+    // console.log(123);
+    // api.DoctorManage.listDoctor();
   };
 
   /* ******* 监听 ******* */
