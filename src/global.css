@@ -9,3 +9,156 @@ section.ant-layout {
 .hl-text-center {
   text-align: center;
 }
+
+.hl-title2 {
+  color: #999;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.hl-title1 {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.star {
+  position: relative;
+}
+.star::before {
+  content: '*';
+  position: absolute;
+  color: red;
+  left: -10px;
+}
+
+.hl-text-center {
+  text-align: center;
+}
+.hl-margin-t10 {
+  margin-top: 10px !important;
+}
+.hl-margin-b10 {
+  margin-bottom: 10px !important;
+}
+.hl-margin-b16 {
+  margin-bottom: 16px !important;
+}
+.hl-margin-l10 {
+  margin-left: 10px;
+}
+.hl-margin-r10 {
+  margin-right: 10px;
+}
+.hl-padding-10 {
+  padding: 10px;
+}
+
+.hl-layout-h {
+  display: flex;
+}
+.hl-layout-v {
+  display: flex;
+  flex-direction: column;
+}
+.hl-flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-gray {
+  color: #cccccc;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.span-primit {
+  color: #1464e8;
+  cursor: pointer;
+}
+.hl-btn {
+  cursor: pointer;
+}
+.hl-btn:active {
+  opacity: 0.7;
+}
+
+/* // .ant-pro-global-header {
+//   position: fixed;
+// }
+
+// .ant-layout {
+//   padding: 100px 0 0;
+// } */
+
+/* .ant-layout-content {
+  padding-top: 64px;
+} */
+.hl-flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hl-title-blue {
+  position: relative;
+  padding-left: 10px;
+}
+.hl-title-blue::before {
+  position: absolute;
+  content: '';
+  background: #1464e8;
+  width: 4px;
+  height: 16px;
+  left: 0px;
+  top: 1px;
+}
+.hl-back {
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  color: #1464e8;
+  line-height: 16px;
+  margin-bottom: 16px;
+}
+.hl-back:active {
+  opacity: 0.7;
+}
+.hl-back::before {
+  content: ' ';
+  position: absolute;
+  background: url('./assets/btn_back.png') no-repeat;
+  background-size: 100%;
+  background-position: center;
+  left: 0px;
+  top: 0px;
+  height: 16px;
+  width: 16px;
+}
+.hl-modal {
+  display: flex;
+  min-height: 100px;
+  align-items: center;
+  justify-content: center;
+}
+/* // .hl-h3 {
+//   position: relative;
+//   padding-left: 12px;
+//   &::before {
+//     position: absolute;
+//     content: '';
+//     width: 8px;
+//     height: 8px;
+//     border-radius: 50%;
+//     background: #1464e8;
+//     top: 8px;
+//     left: 0;
+//   }
+// } */

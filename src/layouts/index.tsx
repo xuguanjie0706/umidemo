@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProLayout, { getMenuData } from '@ant-design/pro-layout';
 import { Link, connect } from 'umi';
 import Icon, { HomeOutlined, createFromIconfontCN } from '@ant-design/icons';
-// import { ConfigProvider } from 'antd';
-// import zhCN from 'antd/es/locale/zh_CN';
-// import logo from '@/assets/pro_icon.svg';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
+import logo from '@/assets/icon_logo.png';
+import RightContent from './RightContent';
 
 interface props {
   route: Route;
@@ -41,6 +42,7 @@ interface Route {
     icon: string;
     name: string;
     path: string;
+    hideInMenu: boolean;
     // optional secondary menu
     children?: Route['routes'];
   }>;
@@ -61,7 +63,27 @@ interface Route {
 const Custom = (props: props) => {
   // console.log(props);
   const { children, route, collapsed, dispatch } = props;
-  console.log(route, collapsed, props);
+  // console.log(route, collapsed, props);
+  // const showRoute = route
+
+  const [showRoute, setShowRoute] = useState(route);
+  const initData = () => {
+    const r = route.routes.map(item => {
+      const obj = { ...item };
+      /* 进行菜单的筛选 */
+      // if (obj.name === '安愈诊室') {
+      //   obj.hideInMenu = true;
+      // }
+      return obj;
+    });
+    const copyRoute = { ...route };
+    copyRoute.routes = r;
+    setShowRoute(copyRoute);
+  };
+  useEffect(() => {
+    initData();
+  }, []);
+
   // const { breadcrumb, menuData } = getMenuData(
   //   route,
   //   // menu,
@@ -94,8 +116,8 @@ const Custom = (props: props) => {
   return (
     <>
       <ProLayout
-        // logo={logo}
-        title="管理后台"
+        logo={logo}
+        title="金泽康养后台"
         //  menuHeaderRender={() => (
         //   <Link to="/">
         //     {collapsed ? 1 : 2}
@@ -107,13 +129,12 @@ const Custom = (props: props) => {
         fixedHeader
         collapsed={collapsed}
         locale="zh-CN"
-        // siderWidth={140}
+        siderWidth={240}
         onCollapse={handleMenuCollapse}
-        onPageChange={e => console.log(e)} //页面改变是执行
+        // onPageChange={e => console.log(e)} //页面改变是执行
         // PageHeaderWrapper={{ content: '123' }}
         menuItemRender={(menuItemProps: any, defaultDom) => {
-          console.log(menuItemProps, defaultDom);
-
+          // console.log(menuItemProps, defaultDom);
           if (
             menuItemProps.isUrl ||
             menuItemProps.children ||
@@ -139,20 +160,8 @@ const Custom = (props: props) => {
           );
         }}
         // menuDataRender={menuDataRender}
-        iconfontUrl="//at.alicdn.com/t/font_1186596_28kbipxildf.js"
+        iconfontUrl="//at.alicdn.com/t/font_1930597_j598m0qrd4g.js"
         // footerRender={<span>1232</span>}
-        // menuItemRender={(menuItemProps, defaultDom) => {
-        //   console.log(menuItemProps);
-
-        //   if (
-        //     menuItemProps.isUrl ||
-        //     menuItemProps.children ||
-        //     !menuItemProps.path
-        //   ) {
-        //     return defaultDom;
-        //   }
-        //   return <Link to={menuItemProps.path}>{defaultDom}</Link>;
-        // }}
         // menuDataRender={props.route.routes}
         // itemRender={(route, params, routes, paths) => {
         //   const first = routes.indexOf(route) === 0;
@@ -163,10 +172,10 @@ const Custom = (props: props) => {
         //   );
         // }}
         // menuProps
-        route={route}
+        route={showRoute}
         // links={[() => <span>1236</span>]}
         // pageTitleRender={() => <p>123</p>}
-        rightContentRender={() => <p>123</p>} // 导航栏上方（page 上方）
+        rightContentRender={RightContent} // 导航栏上方（page 上方）
         // footerRender={() => <p>123</p>} // 导航栏上方（page 下方）
       >
         {children}

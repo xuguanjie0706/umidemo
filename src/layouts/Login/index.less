@@ -1,16 +1,73 @@
 .login {
   height: 100vh;
   width: 100vw;
-  background-image: url(./assets/bg.jpg);
-  .login-room {
-    position: absolute;
-    top: calc(~'150px');
-    left: calc(~'50% - 150px');
-    width: 300px;
-    height: 300px;
-    padding: 16px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 4px;
-    box-shadow: 2px 2px 10px #ccc;
+  background: #f2f6ff;
+  // background-image: url(./assets/bg.jpg);
+  // .login-room {
+  //   position: absolute;
+  //   top: calc(~'150px');
+  //   left: calc(~'50% - 150px');
+  //   width: 300px;
+  //   height: 300px;
+  //   padding: 16px;
+  //   background-color: rgba(255, 255, 255, 0.7);
+  //   border-radius: 4px;
+  //   box-shadow: 2px 2px 10px #ccc;
+  // }
+}
+.loginContainer {
+  max-width: 1100px;
+  min-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+}
+
+.loginImg {
+  width: 560px;
+  position: absolute;
+  top: 20%;
+  left: 10px;
+  // height: 100px;
+}
+
+.loginRoom {
+  position: absolute;
+  right: 10px;
+  top: 20%;
+  background: white;
+  width: 420px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0px 10px 14px 0px rgba(221, 227, 239, 0.5);
+  .ant-form-item {
+    margin-bottom: 16px !important;
+  }
+}
+.loginIcon {
+  width: 190px;
+  margin-bottom: 38px;
+  // margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .loginContainer {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+  }
+  .loginRoom {
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -210px;
+    right: auto;
+  }
+  .loginImg {
+    display: none;
   }
 }

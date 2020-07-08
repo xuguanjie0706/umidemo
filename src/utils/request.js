@@ -23,7 +23,7 @@ const codeMessage = {
  * 异常处理程序
  */
 
-const errorHandler = (error) => {
+const errorHandler = error => {
   const { response } = error;
   if (response && response.status) {
     const errorText = codeMessage[response.status] || response.statusText;
@@ -48,17 +48,37 @@ const instance = axios.create({
 });
 
 class $request {
-  static async init({ url, params, isEncrypt = false, headers: defaultHeader, data, method = 'get', onUploadProgress, isNotice = true }) {
+  static async init({
+    url,
+    params,
+    isEncrypt = false,
+    headers: defaultHeader,
+    data,
+    method = 'get',
+    onUploadProgress,
+    isNotice = true,
+  }) {
     let headers = defaultHeader;
     try {
-      const r = await instance.request({ url, params, headers, data, method, onUploadProgress });
+      const r = await instance.request({
+        url,
+        params,
+        headers,
+        data,
+        method,
+        onUploadProgress,
+      });
       const { data: resultData } = r;
       const { code, data: result, msg } = resultData;
+      console.log(r);
+
       if (isNotice) {
         if (code === 0) {
           return result || true;
         }
-        message.error(msg);
+
+        notification.error({ message: '请求失败', description: msg });
+        // message.error(msg);
       } else {
         return resultData;
       }
