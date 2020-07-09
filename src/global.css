@@ -87,6 +87,11 @@ section.ant-layout {
   opacity: 0.7;
 }
 
+.hl-form-card {
+  min-height: 540px;
+  border-radius: 8px !important;
+}
+
 /* // .ant-pro-global-header {
 //   position: fixed;
 // }

@@ -66,20 +66,38 @@ export default [
               },
             ],
           },
+          // {
+          //   path: 'operating',
+          //   icon: 'icon-deploymentunit',
+          //   name: '运营工具',
+          //   routes: [
+          //     {
+          //       path: 'pushview',
+          //       name: '消息推送',
+          //       component: '@/pages/pushView',
+          //     },
+          //     {
+          //       path: 'pushviewEdit/:id',
+          //       name: '推送编辑',
+          //       component: '@/pages/pushView/Detail',
+          //       hideInMenu: true,
+          //     },
+          //   ],
+          // },
           {
-            path: '/operating',
+            path: 'operating',
             icon: 'icon-deploymentunit',
             name: '运营工具',
             routes: [
               {
-                path: 'pushview',
+                path: 'pushmessage',
                 name: '消息推送',
-                component: '@/pages/pushView',
+                component: '@/pages/PushMessage',
               },
               {
-                path: 'pushviewEdit/:id',
+                path: 'pushmessageEdit/:id',
                 name: '推送编辑',
-                component: '@/pages/pushView/Detail',
+                component: '@/pages/PushMessage/Detail',
                 hideInMenu: true,
               },
             ],

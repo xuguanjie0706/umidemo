@@ -1,9 +1,9 @@
 /*
  * @Author: xgj
  * @since: 2020-07-07 11:25:43
- * @lastTime: 2020-07-09 10:04:33
+ * @lastTime: 2020-07-09 10:52:47
  * @LastAuthor: xgj
- * @FilePath: /um/src/pages/PushView/index.js
+ * @FilePath: /um/src/pages/PushMessage/index.js
  * @message:
  */
 
@@ -57,7 +57,7 @@ const Custom = props => {
     // if (modelChild) {
     //   modelChild.handleShow();
     // }
-    history.push('./pushviewEdit/123');
+    history.push('./pushmessageEdit/123');
   };
 
   /* ******* 设置方法 ******* */

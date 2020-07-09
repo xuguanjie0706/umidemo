@@ -38,7 +38,7 @@ const Detail = props => {
         返回
       </div>
       <Card
-        style={{ borderRadius: 8 }}
+        className="hl-form-card"
         title={<span className="hl-title-blue">添加医生</span>}
       >
         <Form form={form} onFinish={handleSubmit} {...formItemLayout}>

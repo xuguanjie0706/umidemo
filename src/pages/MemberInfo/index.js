@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-07-07 11:25:43
- * @lastTime: 2020-07-07 15:56:59
+ * @lastTime: 2020-07-09 10:48:20
  * @LastAuthor: xgj
  * @FilePath: /um/src/pages/MemberInfo/index.js
  * @message: 会员信息

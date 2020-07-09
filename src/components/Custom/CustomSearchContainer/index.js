@@ -53,7 +53,7 @@ const CustomSearchContainer = (
               <Form
                 style={{
                   backgroundColor: 'rgb(244, 244, 244)',
-                  padding: '16px 16px',
+                  padding: '16px 16px 0',
                   marginBottom: '16px',
                 }}
                 form={form}

@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-07-08 16:21:43
- * @lastTime: 2020-07-09 09:53:34
+ * @lastTime: 2020-07-09 11:08:15
  * @LastAuthor: xgj
  * @FilePath: /um/.umirc.js
  * @message:
@@ -36,6 +36,7 @@ export default defineConfig({
     // '@primary-color': '#1464E8',
     '@modal-body-padding': '16px',
     '@border-radius-base': '4px',
+    '@card-radius': '8px',
     '@item-hover-bg': '#F3F7FF',
     'primary-color': defaultSettings.primaryColor,
   },

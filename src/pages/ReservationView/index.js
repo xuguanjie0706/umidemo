@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-07-07 11:25:43
- * @lastTime: 2020-07-07 17:59:13
+ * @lastTime: 2020-07-09 11:14:43
  * @LastAuthor: xgj
  * @FilePath: /um/src/pages/ReservationView/index.js
  * @message: 预约服务
@@ -77,7 +77,12 @@ const Custom = props => {
 
   /* 表单列表 */
   const SearchTable = useCallback(
-    CustomSearchContainer(CustomTable, null, null, addBtn),
+    CustomSearchContainer(
+      CustomTable,
+      Search,
+      CustomSearchBtnContainer(),
+      addBtn,
+    ),
     [addBtn],
   );
   /* 底部按钮 */

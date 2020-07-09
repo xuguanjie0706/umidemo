@@ -24,7 +24,7 @@ const Detail = props => {
   };
   return (
     <div>
-      <Card style={{ height: 540, paddingTop: 100 }}>
+      <Card className="hl-form-card" style={{ paddingTop: 100 }}>
         <Form form={form} onFinish={handleSubmit} {...formItemLayout}>
           <Form.Item label="设置服务时间提示">
             <Input></Input>
