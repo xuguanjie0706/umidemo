@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 import { Form, Card, Input, Button } from 'antd';
 import Modal from './Form';
+import UploadCard from '@/components/Custom/CustomApiFormItem/PeopleCardUpload';
 
+import './index.less';
 const Detail = props => {
   console.log(props);
 
@@ -38,8 +40,16 @@ const Detail = props => {
         title={<span className="hl-title-blue">添加医生</span>}
       >
         <Form form={form} onFinish={handleSubmit} {...formItemLayout}>
-          <Form.Item label="房间号">
-            <Input readOnly></Input>
+          {/* <Form.Item label="请上传消息封面图片" name="upload"> */}
+          <Form.Item
+            label={
+              <div className="hl-form-label">
+                请上传消息封面图1片<p>宽*高：1160px*320px</p>
+              </div>
+            }
+            name="upload"
+          >
+            <UploadCard desc="上传图片" styles={{ width: 160, height: 160 }} />
           </Form.Item>
           <Form.Item label="标题">
             <Input placeholder="请输入标题，22个字符内"></Input>
@@ -61,7 +71,6 @@ const Detail = props => {
             >
               保存
             </Button>
-
             <Button
               type="ghost"
               style={{ width: 100 }}

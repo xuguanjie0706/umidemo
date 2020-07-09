@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-07-08 16:21:43
- * @lastTime: 2020-07-08 16:42:32
+ * @lastTime: 2020-07-09 09:53:34
  * @LastAuthor: xgj
  * @FilePath: /um/.umirc.js
  * @message:
@@ -16,28 +16,21 @@ const { REACT_APP_ENV } = process.env;
 console.log(REACT_APP_ENV);
 
 export default defineConfig({
-  dynamicImport: {
-    loading: '@/components/PageLoading/index',
-  },
-  nodeModulesTransform: {
-    type: 'none',
-  },
+  // nodeModulesTransform: {
+  //   type: 'none',
+  // },
+  hash: true, //开启打包文件的hash值后缀
   antd: {},
   dva: {
     hmr: true,
   },
-  // locale: {
-  //   // default zh-CN
-  //   default: 'zh-CN',
-  //   // default true, when it is true, will use `navigator.language` overwrite default
-  //   antd: true,
-  //   // baseNavigator: true,
-  // },
+  dynamicImport: {
+    loading: '@/components/PageLoading/index',
+  },
   targets: {
     ie: 11,
   },
-  proxy: proxy[REACT_APP_ENV || 'dev'],
-  title: defaultSettings.title,
+  routes: router,
   theme: {
     // ...darkTheme,
     // '@primary-color': '#1464E8',
@@ -46,8 +39,22 @@ export default defineConfig({
     '@item-hover-bg': '#F3F7FF',
     'primary-color': defaultSettings.primaryColor,
   },
+  title: defaultSettings.title,
   ignoreMomentLocale: true,
+  proxy: proxy[REACT_APP_ENV || 'dev'],
+  // history: {
+  //   type: 'hash',
+  // },
+  // devtool: 'source-map',//生成map文件
+  // locale: {
+  //   // default zh-CN
+  //   default: 'zh-CN',
+  //   // default true, when it is true, will use `navigator.language` overwrite default
+  //   antd: true,
+  //   // baseNavigator: true,
+  // },
+
+  // ignoreMomentLocale: true,
   // layout: {},
   // publicPath: "./",
-  routes: router,
 });

@@ -69,11 +69,11 @@ class $request {
         onUploadProgress,
       });
       const { data: resultData } = r;
-      const { code, data: result, msg } = resultData;
+      const { code, data: result, msg, success } = resultData;
       console.log(r);
 
       if (isNotice) {
-        if (code === 0) {
+        if (code === 200 && success) {
           return result || true;
         }
 

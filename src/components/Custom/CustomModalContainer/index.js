@@ -72,25 +72,6 @@ const CustomModalContainer = WrappedComponent1 => {
           visible: false,
         });
       }
-
-      // this.refs.ModalForm.validateFields().then(async (values) => {
-      //   console.log(values);
-
-      //   this.setState({
-      //     loading: true,
-      //   });
-      //   if (request) {
-      //     const r = await request(values);
-      //     this.setState({
-      //       loading: false,
-      //       visible: !r,
-      //     });
-      //     if (r) {
-      //       this.resetFields();
-      //       callback && callback();
-      //     }
-      //   }
-      // });
     };
 
     setFieldsValue = defaultData => {
