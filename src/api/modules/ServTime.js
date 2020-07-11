@@ -15,3 +15,18 @@ export const saveTimeDesc = (data = {}) => {
     data,
   });
 };
+/**
+ * @memberof module:apis
+ * @description: 查询服务时间提示
+ * @function findTimeDesc
+ * @param {type}  传入参数
+ * @author 周洋(后端对接人名称)
+ * @see {@link http://oms2.swagger.beta.halove.org/v1/jzky/swagger-ui.html#/}
+ * @return {object} 接口对象
+ */
+export const findTimeDesc = (data = {}) => {
+  return request.post({
+    url: 'serv_time/find_time_desc',
+    data,
+  });
+};

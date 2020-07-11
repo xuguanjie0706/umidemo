@@ -4,29 +4,42 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import img from './assets/img.png';
 import loginIcon from './assets/icon_logo.png';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { connect } from "umi"
+// import { throttle } from "@/utils"
 
 const LoginView = props => {
-  const { history } = props;
+  // console.log(props);
+
+  const { history, dispatch } = props;
   const [form] = Form.useForm();
+
   useEffect(() => {
     const password = localStorage.getItem('hl-password');
     if (password) {
       const username = localStorage.getItem('hl-username');
       form.setFieldsValue({
-        password: atob(password),
-        username: username,
+        pwd: atob(password),
+        uname: username,
       });
     }
   }, []);
-  const onFinish = values => {
-    console.log('Success:', values);
-    if (values.remember) {
-      localStorage.setItem('hl-username', values.username);
-      localStorage.setItem('hl-password', btoa(values.password));
-    } else {
-      localStorage.clear();
+
+  const onFinish = async (values) => {
+    // console.log('Success:', values);
+    const r = await dispatch({
+      type: 'user/login',
+      payload: values
+    })
+
+    if (r) {
+      if (values.remember) {
+        localStorage.setItem('hl-username', values.uname);
+        localStorage.setItem('hl-password', btoa(values.pwd));
+      } else {
+        localStorage.clear();
+      }
+      history.push('/');
     }
-    history.push('/');
   };
 
   const onFinishFailed = errorInfo => {
@@ -53,7 +66,7 @@ const LoginView = props => {
             {/* <h2 className="hl-text-center">用户登录</h2> */}
 
             <Form.Item
-              name="username"
+              name="uname"
               rules={[{ required: true, message: '请输入你的账号!' }]}
             >
               <Input
@@ -64,7 +77,7 @@ const LoginView = props => {
             </Form.Item>
 
             <Form.Item
-              name="password"
+              name="pwd"
               rules={[{ required: true, message: '请输入你的密码!' }]}
             >
               <Input.Password
@@ -89,5 +102,6 @@ const LoginView = props => {
     </div>
   );
 };
-
-export default LoginView;
+export default connect(({ user }) => ({
+  status: user.status,
+}))(LoginView);

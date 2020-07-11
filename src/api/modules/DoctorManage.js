@@ -2,16 +2,32 @@ import request from '@/utils/request';
 
 /**
  * @memberof module:apis
- * @description: 删除房间
- * @function delRoom
+ * @description: 删除医生
+ * @function delDoctor
  * @param {type}  传入参数
  * @author 周洋(后端对接人名称)
  * @see {@link http://oms2.swagger.beta.halove.org/v1/jzky/swagger-ui.html#/}
  * @return {object} 接口对象
  */
-export const delRoom = (data = {}) => {
+export const delDoctor = (data = {}) => {
   return request.post({
-    url: 'doctor_manage/del_room',
+    url: 'doctor_manage/del_doctor',
+    data,
+  });
+};
+
+/**
+ * @memberof module:apis
+ * @description: 根据id查询医生信息
+ * @function findDoctorByRoomId
+ * @param {type}  传入参数
+ * @author 周洋(后端对接人名称)
+ * @see {@link http://oms2.swagger.beta.halove.org/v1/jzky/swagger-ui.html#/}
+ * @return {object} 接口对象
+ */
+export const findDoctorByRoomId = (data = {}) => {
+  return request.post({
+    url: 'doctor_manage/find_doctor_by_room_id',
     data,
   });
 };

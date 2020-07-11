@@ -88,8 +88,11 @@ section.ant-layout {
 }
 
 .hl-form-card {
-  min-height: 540px;
   border-radius: 8px !important;
+}
+
+.hl-form-card .ant-card-body {
+  min-height: 400px;
 }
 
 /* // .ant-pro-global-header {
@@ -103,6 +106,15 @@ section.ant-layout {
 /* .ant-layout-content {
   padding-top: 64px;
 } */
+.hl-flex-1 {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* flex: 1; */
+  /* height: 100%; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
 .hl-flex-center {
   display: flex;
   flex-direction: column;
@@ -153,17 +165,11 @@ section.ant-layout {
   align-items: center;
   justify-content: center;
 }
-/* // .hl-h3 {
-//   position: relative;
-//   padding-left: 12px;
-//   &::before {
-//     position: absolute;
-//     content: '';
-//     width: 8px;
-//     height: 8px;
-//     border-radius: 50%;
-//     background: #1464e8;
-//     top: 8px;
-//     left: 0;
-//   }
-// } */
+
+input[type='text']:read-only {
+  background-color: #f4f4f4;
+  outline: none;
+}
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+}

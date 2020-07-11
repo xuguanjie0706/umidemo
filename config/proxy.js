@@ -15,7 +15,7 @@ export default {
   // },
   dev: {
     '/v1': {
-      target: 'http://beta-oms2.halove.com/',
+      target: 'https://beta-oms2.halove.com/',
       changeOrigin: true,
       pathRewrite: {
         '^': '',

@@ -47,33 +47,35 @@ const CustomModalContainer = WrappedComponent1 => {
 
     hangeClick = async () => {
       const { request, callback, isClearn = true, errCallback } = this.props;
-      // const isTouch = await this.refs.ModalForm.isFieldsTouched([], true);
-      // console.log(isTouch);
 
-      const values = await this.refs.ModalForm.validateFields();
-      this.setState({
-        loading: true,
-      });
-      if (request) {
-        const r = await request(values);
+      try {
+        const values = await this.refs.ModalForm.validateFields();
         this.setState({
-          loading: false,
-          visible: !r,
+          loading: true,
         });
-        if (r) {
-          isClearn && this.resetFields();
-          callback && callback(r);
+        if (request) {
+          const r = await request(values);
+          this.setState({
+            loading: false,
+            visible: !r,
+          });
+          if (r) {
+            isClearn && this.resetFields();
+            callback && callback(r);
+          } else {
+            errCallback && errCallback();
+          }
         } else {
-          errCallback && errCallback();
+          this.setState({
+            loading: false,
+            visible: false,
+          });
+          // throw new Error("请求上传地址不正确")
         }
-      } else {
-        this.setState({
-          loading: false,
-          visible: false,
-        });
+      } catch (error) {
+        // console.log(error);
       }
-    };
-
+    }
     setFieldsValue = defaultData => {
       this.refs.ModalForm.setFieldsValue(defaultData);
     };
@@ -116,7 +118,7 @@ const CustomModalContainer = WrappedComponent1 => {
           width={width}
           footer={footer}
           okButtonProps={okButtonProps}
-          // style={style}
+        // style={style}
         >
           <Form
             hideRequiredMark

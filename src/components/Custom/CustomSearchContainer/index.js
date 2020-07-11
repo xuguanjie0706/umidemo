@@ -48,7 +48,7 @@ const CustomSearchContainer = (
             style={{ marginBottom: 12 }}
             title={customTitle}
           >
-            {AddComponent && <AddComponent />}
+            {AddComponent && <AddComponent child={child} />}
             {SearchComponent && (
               <Form
                 style={{

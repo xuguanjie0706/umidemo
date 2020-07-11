@@ -5,7 +5,7 @@ import { PageLoading } from '@ant-design/pro-layout';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
 import 'moment/locale/zh-cn';
-class SecurityLayout extends React.Component {
+class SecurityLayout extends React.PureComponent {
   state = {
     isReady: false,
   };

@@ -16,6 +16,10 @@ export default [
             redirect: '/clinic/doctor',
           },
           {
+            path: 'home',
+            component: '@/pages/Home',
+          },
+          {
             path: 'clinic',
             icon: 'icon-folder-add',
             name: '安愈诊室',

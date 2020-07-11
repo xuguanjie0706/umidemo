@@ -43,7 +43,7 @@ const errorHandler = error => {
 };
 
 const instance = axios.create({
-  baseURL: '/v1/starry/saas/',
+  baseURL: '/v1/jzky/',
   timeout: 5000,
 });
 
@@ -70,13 +70,10 @@ class $request {
       });
       const { data: resultData } = r;
       const { code, data: result, msg, success } = resultData;
-      console.log(r);
-
       if (isNotice) {
         if (code === 200 && success) {
           return result || true;
         }
-
         notification.error({ message: '请求失败', description: msg });
         // message.error(msg);
       } else {
@@ -92,7 +89,7 @@ class $request {
   static post({ ...option }) {
     return this.init({
       ...option,
-      method: 'POST',
+      method: 'post',
     });
   }
 
